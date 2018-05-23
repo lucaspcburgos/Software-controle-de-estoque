@@ -1,19 +1,13 @@
 import tkinter as tk
-
-arqAcesso = open("userpass.txt" , "r")
-usuarioSenha = arqAcesso.read()
+from criptoarquivo import *
 
 dicVenda = {}
 dicCompra = {}
 dicUsuario = {}
 listaVenda = []
 listaCompra = []
-dicEstoque = {}
-
-def criptografaParaArq():
-    x=1
-def descriptografaParaDic():
-    x=1
+dicEstoque = {}   
+   
 #---------------------------------FUNÇAO JANELA DE TRANSAÇOES-----------------------------------
 def criaJanelaTransacao():
     
