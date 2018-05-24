@@ -1,4 +1,4 @@
-def lerChaveDoArquivo():
+def lerChavePublica():
     arq = open("chavePublica.txt", "r")
     texto = arq.read
     e = ""
@@ -15,29 +15,46 @@ def lerChaveDoArquivo():
     n = int(n)
     return (e,n)
 
-def criptografa(letra):
+def lerChavePrivada():
+    arq = open("chavePublica.txt", "r")
+    texto = arq.read
+    e = ""
+    n = ""
+    var = True
+    for numero in texto:
+        if var == True:
+            e += numero
+            if numero == ";":
+                var = False
+        else:
+            n += numero      
+    d = int(d)
+    n = int(n)
+    return (d,n)
+
+def criptografa(dicionario,letra):
 
     chavesDic = dicionario.keys()
-    for i
-def descriptografaParaDic():
-    x+1
+    
+def descriptografaParaDic(arquivo):
+    num1 = lerChavePrivada()[0]
+    num2 = lerChavePrivada()[1]
+    elementoFinal = ""
+    arq = open(arquivo, "r")
+    texto = arq.read()
+    
+    for elemento in texto:
+        letra = chr((elemento**num2) % num1)
+        elementoFinal += letra
+
+
+
+
+
 
 
 def escreveNoArquivo(dicionario):
-    for palavra in dic:
-
-
-"""
-pegar as chaves do dicionario e adicionar na string  seguido de ';' e depois cada elemento da tupla
-separados por '?' e uma '!' no final da ultima.
-depois é so escrever essa string criptografada no arquivo
-
-para usar no dicionario cria uma funçao que le o arquivo e depois de descriptografado, cria a mesma string 
-da funçao anterior toda vez que encontra um ';'
-cria a chave do dicionario e quando encontra '?' adiciona elementos na tupla 
- -> problema: tuplas sao imutavei <- 
-quando encontrar '!' recomeça adicionando como chave ate o ';'
-"""
+ x+1   
 
 
 

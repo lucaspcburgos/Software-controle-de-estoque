@@ -1,14 +1,24 @@
 import tkinter as tk
-from criptoarquivo import *
 
 dicVenda = {}
 dicCompra = {}
 dicUsuario = {}
 listaVenda = []
 listaCompra = []
-dicEstoque = {}   
-   
-#---------------------------------FUNÇAO JANELA DE TRANSAÇOES-----------------------------------
+dicEstoque = {}  
+
+def historicoVenda():
+     return dicVenda
+
+def historicoCompra():
+     return dicCompra
+
+def bancoDeUsuarios():
+     return dicUsuario
+
+def estoqueTotal():
+     return dicEstoque
+
 def criaJanelaTransacao():
     
     #----------------------FUNCIONAMENTO DA JANELA TRANSAÇAO-----------------------------
@@ -255,9 +265,9 @@ def criaJanelaPesquisaProduto():
     
 
 #------------------------------------FUNÇAO TELA ADMIN--------------------------------------
-def telaAdmin():
+def telaAdmin(x):
     #--------------------LAYOUT JANELA ADMIN----------------------
-    window.destroy()
+    x.destroy()
     janela = tk.Tk()
     janela.geometry("470x340+525+270")
     janela.title("Controle de Estoque - LPtech (Administrador)")
@@ -281,39 +291,15 @@ def telaAdmin():
     janela.mainloop()
     
 #----------------------------------FUNÇAO DE LOGIN---------------------------------
-def acesso():
-    botao1["bg"] = "green"
-    usuario = entrada1.get()
-    password = entrada2.get()
+def acesso(p1,p2,p3,p4):
+    
+    usuario = p1.get()
+    password = p2.get()
+    aviso = p3
     if usuario == "admin" and password == "admin":
-        telaAdmin()
+        telaAdmin(p4)
     elif usuario == "admin2" and password == "admin2":
         criaJanelaGerenciamento()
     else:
         aviso["text"] = "Usuário ou senha incorretos"
-
-#---------------------------LAYOUT JANELA DE LOGIN--------------------------------
-window = tk.Tk()
-window.title("Controle de Estoque - LPtech")
-window.geometry("350x200+525+270")
-
-titulo = tk.Label(text="Usuário:")
-titulo.place(x=50, y=50)
-
-entrada1 = tk.Entry()
-entrada1.place(x=105, y=50)
-
-senha = tk.Label(text="Senha:")
-senha.place(x=50,y=75)
-
-entrada2 = tk.Entry()
-entrada2.place(x=105, y=75)
-
-aviso = tk.Label(text="")
-aviso.place(x=0,y=0)
-
-botao1 = tk.Button(text = "Entrar", command = acesso)
-botao1.place(x = 150, y=105)
-
-window.mainloop()
-
+        
